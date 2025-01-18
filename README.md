@@ -1,5 +1,3 @@
-Collecting workspace information
-
 # Typesense Helm Chart
 
 This repository contains a Helm chart for deploying the Typesense search engine.
