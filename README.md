@@ -11,6 +11,15 @@ Typesense is a fast, typo-tolerant search engine for building delightful search 
 - Kubernetes 1.16+
 - Helm 3.0+
 
+## Package
+
+After making changes to the Chart itself you need to update the version number in `Chart.yaml` an package the Chart
+
+```sh
+helm package charts/typesense
+helm repo index --url https://newtrition-data.github.io/helm-charts/ .
+```
+
 ## Installation
 
 To install the chart with the release name `my-release`:
