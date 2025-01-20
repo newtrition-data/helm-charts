@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: Service
 metadata:
-  name: {{ include "typesense.fullname" . }}
+  name: {{ include "typesense.fullname" . }}-service
   labels:
     {{- include "typesense.labels" . | nindent 4 }}
 spec:
