@@ -46,7 +46,7 @@ The following table lists the configurable parameters of the Typesense chart and
 | `replicaCount`                   | Number of replicas                                           | `1`                            |
 | `image.repository`               | Image repository                                             | `typesense/typesense`          |
 | `image.pullPolicy`               | Image pull policy                                            | `IfNotPresent`                 |
-| `image.tag`                      | Image tag                                                    | `27.1`                         |
+| `image.tag`                      | Image tag                                                    | `29.0`                         |
 | `imagePullSecrets`               | Secrets for image pull                                       | `[]`                           |
 | `nameOverride`                   | Override the chart name                                      | `""`                           |
 | `fullnameOverride`               | Override the full name                                       | `""`                           |
