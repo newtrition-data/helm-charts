@@ -1,4 +1,3 @@
-# templates/statefulset.yaml
 apiVersion: apps/v1
 kind: StatefulSet
 metadata:
@@ -54,6 +53,7 @@ spec:
   {{- if .Values.persistence.enabled }}
   volumeClaimTemplates:
     - metadata:
+        creationTimestamp: null
         name: data
       spec:
         accessModes:
@@ -67,4 +67,3 @@ spec:
           requests:
             storage: {{ .Values.persistence.size | quote }}
   {{- end }}
-

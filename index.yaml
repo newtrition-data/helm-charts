@@ -3,7 +3,17 @@ entries:
   typesense:
   - apiVersion: v2
     appVersion: "29.0"
-    created: "2026-02-14T21:10:22.228552888+01:00"
+    created: "2026-02-15T08:18:46.486962171+01:00"
+    description: A Helm chart for Typesense search engine
+    digest: 6e3e3b09db5f2d44ac5c3ed5063fce2486a1f35f1d32e0bef42053b697dfbfbe
+    name: typesense
+    type: application
+    urls:
+    - https://newtrition-data.github.io/helm-charts/typesense-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
+    appVersion: "29.0"
+    created: "2026-02-15T08:18:46.486832355+01:00"
     description: A Helm chart for Typesense search engine
     digest: 8102f71f8cee5d9eea381d61e183975124fcee3d7804622e64de1700cd38a2cc
     name: typesense
@@ -13,7 +23,7 @@ entries:
     version: 0.1.4
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-14T21:10:22.228415127+01:00"
+    created: "2026-02-15T08:18:46.486616666+01:00"
     description: A Helm chart for Typesense search engine
     digest: 7210bb68844559cd95f545b204e5f317615a3c0acacd2e9f8e1817bb8c265c2e
     name: typesense
@@ -23,7 +33,7 @@ entries:
     version: 0.1.3
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-14T21:10:22.228275221+01:00"
+    created: "2026-02-15T08:18:46.486411937+01:00"
     description: A Helm chart for Typesense search engine
     digest: 8cc042e0e7de9cd3146264253f0ed192bceddebf397c855a0ec539ef4bb47ff2
     name: typesense
@@ -33,7 +43,7 @@ entries:
     version: 0.1.2
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-14T21:10:22.228123163+01:00"
+    created: "2026-02-15T08:18:46.48618153+01:00"
     description: A Helm chart for Typesense search engine
     digest: 21b14a1ba078053c11b5327025ccdda550c6acdcc88784b3e26b4f088245b527
     name: typesense
@@ -43,7 +53,7 @@ entries:
     version: 0.1.1
   - apiVersion: v2
     appVersion: 1.16.0
-    created: "2026-02-14T21:10:22.227940506+01:00"
+    created: "2026-02-15T08:18:46.48592333+01:00"
     description: A Helm chart for Typesense search engine
     digest: de05bdfa6679248b664d60ea4a0daee13fed36a5dc0e0866a4809a394a5e3f9e
     name: typesense
@@ -51,4 +61,4 @@ entries:
     urls:
     - https://newtrition-data.github.io/helm-charts/typesense-0.1.0.tgz
     version: 0.1.0
-generated: "2026-02-14T21:10:22.227683599+01:00"
+generated: "2026-02-15T08:18:46.48543833+01:00"
