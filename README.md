@@ -46,7 +46,7 @@ The following table lists the configurable parameters of the Typesense chart and
 | `replicaCount`                   | Number of replicas                                           | `1`                            |
 | `image.repository`               | Image repository                                             | `typesense/typesense`          |
 | `image.pullPolicy`               | Image pull policy                                            | `IfNotPresent`                 |
-| `image.tag`                      | Image tag                                                    | `29.0`                         |
+| `image.tag`                      | Image tag                                                    | `30.1`                         |
 | `imagePullSecrets`               | Secrets for image pull                                       | `[]`                           |
 | `nameOverride`                   | Override the chart name                                      | `""`                           |
 | `fullnameOverride`               | Override the full name                                       | `""`                           |
@@ -74,6 +74,11 @@ Alternatively, a YAML file that specifies the values for the parameters can be p
 ```sh
 helm install my-release newtrition-data/typesense -f values.yaml
 ```
+
+## Upgrading to Typesense 30.x
+
+Typesense v30.0 introduced API-level behavior changes and automatic migrations for synonyms, overrides (curations) and analytics rules.
+Before upgrading from older versions, review the official release notes and take a snapshot/backup first.
 
 ## Accessing the Chart Repository
 
