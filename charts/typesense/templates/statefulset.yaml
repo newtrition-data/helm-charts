@@ -1,5 +1,6 @@
 apiVersion: apps/v1
 kind: StatefulSet
+{{- $isClustered := gt (int .Values.replicaCount) 1 }}
 metadata:
   name: {{ include "typesense.fullname" . }}
   labels:
@@ -36,8 +37,10 @@ spec:
               value: {{ .Values.cors | quote }}
             - name: TYPESENSE_API_PORT
               value: "8108"
+            {{- if $isClustered }}
             - name: TYPESENSE_NODES
               value: /etc/typesense/nodes
+            {{- end }}
           ports:
             - name: http
               containerPort: 8108
@@ -47,16 +50,20 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
+            {{- if $isClustered }}
             - name: nodes
               mountPath: /etc/typesense
               readOnly: true
+            {{- end }}
       volumes:
+        {{- if $isClustered }}
         - name: nodes
           configMap:
             name: {{ include "typesense.fullname" . }}-nodes
             items:
               - key: nodes
                 path: nodes
+        {{- end }}
       {{- if not .Values.persistence.enabled }}
         - name: data
           emptyDir: {}
