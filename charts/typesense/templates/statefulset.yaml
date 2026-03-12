@@ -5,8 +5,8 @@ metadata:
   labels:
     {{- include "typesense.labels" . | nindent 4 }}
 spec:
-  serviceName: ts
-  replicas: 1
+  serviceName: {{ include "typesense.fullname" . }}
+  replicas: {{ .Values.replicaCount }}
   podManagementPolicy: OrderedReady
   selector:
     matchLabels:
@@ -36,6 +36,8 @@ spec:
               value: {{ .Values.cors | quote }}
             - name: TYPESENSE_API_PORT
               value: "8108"
+            - name: TYPESENSE_NODES
+              value: /etc/typesense/nodes
           ports:
             - name: http
               containerPort: 8108
@@ -45,8 +47,17 @@ spec:
           volumeMounts:
             - name: data
               mountPath: /data
-      {{- if not .Values.persistence.enabled }}
+            - name: nodes
+              mountPath: /etc/typesense
+              readOnly: true
       volumes:
+        - name: nodes
+          configMap:
+            name: {{ include "typesense.fullname" . }}-nodes
+            items:
+              - key: nodes
+                path: nodes
+      {{- if not .Values.persistence.enabled }}
         - name: data
           emptyDir: {}
       {{- end }}

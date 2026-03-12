@@ -1,3 +1,4 @@
+{{- $fullname := include "typesense.fullname" . -}}
 # templates/configmap.yaml
 apiVersion: v1
 kind: ConfigMap
@@ -6,4 +7,4 @@ metadata:
   labels:
     {{- include "typesense.labels" . | nindent 4 }}
 data:
-  nodes: {{ range $i, $e := until (int .Values.replicaCount) }}{{ if $i }},{{ end }}{{ $.Release.Name }}-typesense-{{ $i }}.ts.{{ $.Release.Namespace }}.svc.cluster.local:8107:8108{{ end }}
+  nodes: {{ range $i, $_ := until (int .Values.replicaCount) -}}{{- if $i }},{{ end }}{{ $fullname }}-{{ $i }}.{{ $fullname }}.{{ $.Release.Namespace }}.svc.cluster.local:8107:8108{{- end }}
