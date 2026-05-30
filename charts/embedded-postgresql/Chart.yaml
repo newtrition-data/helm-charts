@@ -1,0 +1,6 @@
+apiVersion: v2
+name: embedded-postgresql
+description: A lightweight embedded PostgreSQL chart for review and ephemeral environments
+type: application
+version: 0.1.0
+appVersion: "16.6"
