@@ -45,25 +45,12 @@ spec:
             - name: management
               containerPort: 15672
               protocol: TCP
-          livenessProbe:
-            exec:
-              command:
-                - rabbitmq-diagnostics
-                - -q
-                - ping
-            initialDelaySeconds: 30
-            periodSeconds: 10
-            timeoutSeconds: 5
-            failureThreshold: 6
           readinessProbe:
-            exec:
-              command:
-                - rabbitmq-diagnostics
-                - -q
-                - check_port_connectivity
-            initialDelaySeconds: 10
+            tcpSocket:
+              port: amqp
+            initialDelaySeconds: 5
             periodSeconds: 10
-            timeoutSeconds: 5
+            timeoutSeconds: 2
             failureThreshold: 6
           volumeMounts:
             - name: data
