@@ -1,0 +1,32 @@
+enabled: true
+
+image:
+  repository: rabbitmq
+  tag: "4.3.2-management-alpine"
+  pullPolicy: IfNotPresent
+
+service:
+  type: ClusterIP
+  port: 5672
+  managementPort: 15672
+
+auth:
+  username: app
+  password: changeme
+  erlangCookie: changeme
+
+persistence:
+  enabled: false
+  size: 1Gi
+  storageClass: ""
+
+resources:
+  limits:
+    cpu: 500m
+    memory: 512Mi
+  requests:
+    cpu: 100m
+    memory: 256Mi
+
+nameOverride: ""
+fullnameOverride: ""

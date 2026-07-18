@@ -1,0 +1,18 @@
+{{- if and .Values.enabled .Values.persistence.enabled }}
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: {{ include "embedded-rabbitmq.fullname" . }}-data
+  labels:
+    {{- include "embedded-rabbitmq.labels" . | nindent 4 }}
+    app.kubernetes.io/component: rabbitmq
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: {{ .Values.persistence.size | quote }}
+  {{- if .Values.persistence.storageClass }}
+  storageClassName: {{ .Values.persistence.storageClass | quote }}
+  {{- end }}
+{{- end }}
